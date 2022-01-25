@@ -7,18 +7,26 @@
 #To make your program really believable, have Grandma shout adifferent year each time, maybe any year at random between 1930 and 1950.
 #You can’t stop talking to Grandma until you shout BYE.
 
+#Deaf grandma extended. What if Grandma doesn’t want you to leave? When you shout BYE, she could pretend not to hear you.
+#Change your previous program so that you have to shout BYE three times in a row.
+#Make sure to test your program: if you shout BYE three times but not in a row, you should still be talking to Grandma.
 
 
 puts "Hello dear, how are you?"
 answer = gets.chomp
 
-years = [1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939, 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950]
+bye_count = 0
 
-while answer != "BYE"
-    if answer == answer.upcase
+while bye_count < 2
+    if answer == "BYE"
         puts "NO, NOT SINCE #{rand(1930..1950)}"
+        bye_count += 1
+    elsif answer == answer.upcase
+        puts "NO, NOT SINCE #{rand(1930..1950)}"
+        bye_count = 0
     elsif
         puts "HUH?! SPEAK UP, SONNY"
+        bye_count = 0
     end
     answer = gets.chomp
 end
